@@ -1,0 +1,30 @@
+{% extends 'accounts/account_base.html' %}
+
+{% block context %}
+    <div class="h1 mb-3">Login</div>
+    <form method="POST">
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+            {% if form.email.description %}
+                <small class="form-text">{{ form.email.description }}</small>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+            {% if form.password.description %}<small class="form-text">{{ form.password.description }}</small>{% endif %}
+        </div>
+        <div class="mb-3 form-check">
+            {{ form.remember_me(class="form-check-input") }}
+            {{ form.remember_me.label(class="form-label") }}
+            {% if form.remember_me.description %}<small class="form-text">{{ form.remember_me.description }}</small>{% endif %}
+        </div>
+        <div class="col text-end">
+            {{ form.submit(class="btn btn-primary px-4") }}
+        </div>
+    </form>
+    <div class="pt-4 text-center">
+        Not registered? <a href="{{ url_for('account.register') }}">Create an account</a>
+    </div>
+{% endblock %}

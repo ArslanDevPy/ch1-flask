@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block main_css_links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashlite.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/theme.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.png')}}">
+    {% block extra_css %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    <body class="nk-body bg-lighter npc-default has-sidebar ">
+        <div class="nk-app-root">
+            <div class="nk-main ">
+                {% include 'main/includes/sidebar.html' %}
+                <div class="nk-wrap ">
+                    {% include 'main/includes/navbar.html' %}
+                        {% block context %}{% endblock %}
+                    {% include 'main/includes/footer.html' %}
+                </div>
+            </div>
+        </div>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/js/bundle.js')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/js/scripts.js')}}">
+        {% block extra_js %}{% endblock %}
+    </body>
+{% endblock %}

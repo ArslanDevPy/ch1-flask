@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main_extra_css %}
+    {% block extra_css %}{% endblock %}
+{% endblock %}
+
+{% block main_extra_js %}
+    {% block extra_js %}{% endblock %}
+{% endblock %}
+
+{% block main_context %}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 col-xxl-3 border rounded p-5 m-3">
+            {% block context %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main_context %}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <h1 class="me-3 pe-3 align-top border-end inline-block align-content-center">{{ status_code }}</h1>
+        <div class="inline-block align-middle">
+            <h2 class="fw-normal lead" id="desc">{{ message }}</h2>
+        </div>
+    </div>
+{% endblock %}
