@@ -3,14 +3,14 @@ from wtforms import PasswordField, BooleanField, SubmitField, EmailField, String
 from wtforms.validators import Length, InputRequired, Email
 
 
-class Login(Form):
+class LoginForm(Form):
     email = EmailField(label='Email', validators=[InputRequired(), Length(5, 64), Email()])
     password = PasswordField(label='Password', validators=[InputRequired()])
     remember_me = BooleanField(label='Keep me logged in')
     submit = SubmitField(label='Log In')
 
 
-class Register(Form):
+class RegisterForm(Form):
     name = StringField(label="Name", validators=(InputRequired(), Length(4, 60)))
     email = EmailField(label='Email', validators=[InputRequired(), Length(5, 64), Email()])
     password1 = PasswordField(label='Password', validators=[InputRequired(), Length(8, 40)])

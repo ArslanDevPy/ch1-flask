@@ -22,6 +22,13 @@ def page_not_found(e):
     return render_template('error.html', **context), 404
 
 
+@app.errorhandler(405)
+def page_not_found(e):
+    context = {'title': "Error 404 – Method Not Allowed", 'status_code': 405,
+               'message': "Method Not Allowed."}
+    return render_template('error.html', **context), 405
+
+
 @app.errorhandler(500)
 def internal_server_error(e):
     context = {'title': "Error 500 – Server Error", 'status_code': 500, 'message': "Oops, something went wrong."}
