@@ -4,26 +4,52 @@
     <div class="h1 mb-3">Register</div>
     <form method="POST">
         <div class="mb-3">
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control") }}
-            {% if form.email.description %}
-                <small class="form-text">{{ form.email.description }}</small>
-            {% endif %}
+            {% with  filed=form.email %}
+                {{ filed.label(class="form-label") }}
+                {% if filed.errors %}
+                    {{ filed(class="form-control border-danger") }}
+                    {% for error in filed.errors %}<small class="text-danger form-text">{{ error }}</small>{% endfor %}
+                {% else %}
+                    {{ filed(class="form-control") }}
+                {% endif %}
+                {% if filed.description %}<small class="form-text">{{ filed.description }}</small>{% endif %}
+            {% endwith %}
         </div>
         <div class="mb-3">
-            {{ form.password1.label(class="form-label") }}
-            {{ form.password1(class="form-control") }}
-            {% if form.password1.description %}<small class="form-text">{{ form.password1.description }}</small>{% endif %}
+            {% with  filed=form.password1 %}
+                {{ filed.label(class="form-label") }}
+                {% if filed.errors %}
+                    {{ filed(class="form-control border-danger") }}
+                    {% for error in filed.errors %}<small class="text-danger form-text">{{ error }}</small>{% endfor %}
+                {% else %}
+                    {{ filed(class="form-control") }}
+                {% endif %}
+                {% if filed.description %}<small class="form-text">{{ filed.description }}</small>{% endif %}
+            {% endwith %}
         </div>
         <div class="mb-3">
-            {{ form.password2.label(class="form-label") }}
-            {{ form.password2(class="form-control") }}
-            {% if form.password2.description %}<small class="form-text">{{ form.password2.description }}</small>{% endif %}
+            {% with  filed=form.password2 %}
+                {{ filed.label(class="form-label") }}
+                {% if filed.errors %}
+                    {{ filed(class="form-control border-danger") }}
+                    {% for error in filed.errors %}<small class="text-danger form-text">{{ error }}</small>{% endfor %}
+                {% else %}
+                    {{ filed(class="form-control") }}
+                {% endif %}
+                {% if filed.description %}<small class="form-text">{{ filed.description }}</small>{% endif %}
+            {% endwith %}
         </div>
         <div class="mb-3 form-check">
-            {{ form.agree(class="form-check-input") }}
-            {{ form.agree.label(class="form-label") }}
-            {% if form.agree.description %}<small class="form-text">{{ form.agree.description }}</small>{% endif %}
+            {% with filed=form.agree %}
+                {% if filed.errors %}
+                    {{ filed(class="form-check-input border-danger") }}{{ filed.label(class="form-label") }}
+                    <br>
+                    {% for error in filed.errors %}<small class="text-danger form-text">{{ error }}</small>{% endfor %}
+                {% else %}
+                    {{ filed(class="form-check-input") }}{{ filed.label(class="form-label") }}
+                {% endif %}
+                {% if filed.description %}<small class="form-text">{{ filed.description }}</small>{% endif %}
+            {% endwith %}
         </div>
         <div class="col text-end">
             {{ form.submit(class="btn btn-primary px-4") }}
